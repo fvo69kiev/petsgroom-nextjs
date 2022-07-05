@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../Home.module.css'
 
 export default function Home() {
   return (
@@ -15,6 +14,7 @@ export default function Home() {
           Create PetsGroom site
         </h1>
           <p>Coming soon!</p>
+          <p>Done the structure.</p>
       </main>
     </div>
   )
