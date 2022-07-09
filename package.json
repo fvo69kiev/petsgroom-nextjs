@@ -6,7 +6,8 @@
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
     "serve": "set NODE_OPTIONS=--openssl-legacy-provider && next start",
-    "export": "set NODE_OPTIONS=--openssl-legacy-provider && next export"
+    "export": "set NODE_OPTIONS=--openssl-legacy-provider && next export",
+    "postbuild": "set NODE_OPTIONS=--openssl-legacy-provider && next-sitemap"
   },
   "dependencies": {
     "components": "^0.1.0",
