@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && next build",
-    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && next start",
-    "export": "set NODE_OPTIONS=--openssl-legacy-provider && next export"    
+    "dev": "next dev",
+    "build": "next build",
+    "serve": "next start",
+    "export": "next export"
   },
   "dependencies": {
     "components": "^0.1.0",
@@ -29,6 +29,7 @@
     "react-icons": "^3.10.0",
     "react-image-gallery": "^1.2.8",
     "react-input-mask": "^2.0.4",
+    "react-loader-spinner": "^5.1.5",
     "react-modal-video": "1.2.6",
     "react-multi-carousel": "^2.5.5",
     "react-on-screen": "^2.1.1",
