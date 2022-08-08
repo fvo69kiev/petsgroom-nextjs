@@ -101,6 +101,7 @@ export default function Order() {
                                 <Flex sx={styles.subscribeForm}>
                                     <Textarea
                                         id="text"
+                                        style={{outline: 'none',}}
                                         sx={styles.subscribeForm[".subscribe__input"]}
                                         value={message}
                                         onChange={(e) => { setMessage(e.target.value) }}
