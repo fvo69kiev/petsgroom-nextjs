@@ -140,29 +140,9 @@ export default function Order() {
                                         </Box>
                                     }
                                 </Box>
-//                                 <Box sx={styles.info}>
-//                                     { submitted ?
-//                                         <Box style={{paddingLeft: '42%'}}>
-//                                             <ThreeDots
-//                                                 color="white"
-//                                                 height={80}
-//                                                 width={80}
-//                                                 ariaLabel="three-dots-running"
-//                                             />
-//                                         </Box>
-//                                         : status === "success" ?
-//                                         <Box sx={styles.success} status="success">
-//                                             <Heading variant='title' style={{color: 'background'}}>Успішно!</Heading>
-//                                             <Text>Ваша заявка надіслана. Мы Вам зателефонуємо найближчим часом</Text>
-//                                         </Box>
-//                                         : status === "error" ?
-//                                             <Box sx={styles.error} status="error" >
-//                                                 <Heading variant='title' style={{color: 'background'}}>Помилка!</Heading>
-//                                                 <Text>Ваша заявка не надіслана. Спробуйте ще раз</Text>
-//                                             </Box>
-//                                             : null
-//                                     }
-//                                 </Box>
+
+
+
                             </form>
                         </Box>
                     </Box>
