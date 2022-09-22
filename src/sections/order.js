@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import React, {useState} from 'react'
+import { toast, ToastContainer } from 'react-toastify';
 import {jsx, Container, Flex, Box, Heading, Text, Button, Input, Textarea } from 'theme-ui'
 import { ThreeDots } from 'react-loader-spinner'
 import InputMask from 'react-input-mask';
@@ -10,7 +11,7 @@ export default function Order() {
     const [phone, setPhone] = useState('')
     const [message, setMessage] = useState('')
     const [submitted, setSubmitted] = useState(false)
-    const [status, setStatus] = useState('')
+//     const [status, setStatus] = useState('')
 
     const clear = () => {
         setSubmitted(false)
@@ -18,13 +19,16 @@ export default function Order() {
         setEmail('')
         setPhone('')
         setMessage('')
-        setTimeout(() => {
-            setStatus((prev) => !prev);
-        }, 5000);
+//         setTimeout(() => {
+//             setStatus((prev) => !prev);
+//         }, 5000);
     }
 
     async function handleSubmit (e) {
         e.preventDefault()
+        if (!name || !email || !phone) {
+            return toast.info('Будь ласка заповніть всі поля для введення даних');
+        }
 
         const formData = {
             name,
@@ -41,11 +45,13 @@ export default function Order() {
             body: JSON.stringify(formData)
         }).then((res) => {
             if (res.status === 200) {
-                setStatus('success')
+//                 setStatus('success')
+                toast.success('Ваша заявка надіслана. Ми Вам зателефонуємо найближчим часом');
                 clear()
             }
             else {
-                setStatus('error')
+//                 setStatus('error')
+                 toast.error('Ваша заявка не надіслана. Виникла помилка. Спробуйте ще раз');
                 clear()
             }
         })
@@ -54,6 +60,11 @@ export default function Order() {
     return (
             <section id='subscribe'>
                 <Container>
+                    <ToastContainer
+                        position="top-center"
+                        theme='colored'
+                        limit={1}
+                    />
                     <Box sx={styles.contentBox}>
                         <Box sx={styles.contentBoxInner}>
                             <Heading as="h2" sx={styles.title}>
@@ -71,7 +82,7 @@ export default function Order() {
                                         value={name}
                                         onChange={(e) => { setName(e.target.value) }}
                                         placeholder="Ім'я"
-                                        required
+//                                         required
                                     />
                                 </Flex>
                                 <Flex sx={styles.subscribeForm}>
@@ -82,7 +93,7 @@ export default function Order() {
                                         value={email}
                                         onChange={(e) => { setEmail(e.target.value) }}
                                         placeholder='Email'
-                                        required
+//                                         required
                                     />
                                 </Flex>
                                 <Flex sx={styles.subscribeForm}>
@@ -95,7 +106,7 @@ export default function Order() {
                                         value={phone}
                                         onChange={(e) => {setPhone(e.target.value)}}
                                         placeholder="Телефон"
-                                        required
+//                                         required
                                     />
                                 </Flex>
                                 <Flex sx={styles.subscribeForm}>
@@ -111,15 +122,14 @@ export default function Order() {
                                 </Flex>
                                 <Button
                                     type='submit'
-                                    isLoading={submitted}
+//                                     isLoading={submitted}
                                     arial-label='Надіслати'
                                     sx={styles.subscribeForm[".subscribe__btn"]}
                                 >
                                     {submitted ? 'Надсилається ...' : 'Надіслати'}
                                 </Button>
-
                                 <Box sx={styles.info}>
-                                    { submitted ?
+                                    {submitted &&
                                         <Box style={{paddingLeft: '42%'}}>
                                             <ThreeDots
                                                 color="white"
@@ -128,19 +138,32 @@ export default function Order() {
                                                 ariaLabel="three-dots-running"
                                             />
                                         </Box>
-                                        : status === "success" ?
-                                        <Box sx={styles.success} status="success">
-                                            <Heading variant='title' style={{color: 'background'}}>Успішно!</Heading>
-                                            <Text>Ваша заявка надіслана. Мы Вам зателефонуємо найближчим часом</Text>
-                                        </Box>
-                                        : status === "error" ?
-                                            <Box sx={styles.error} status="error" >
-                                                <Heading variant='title' style={{color: 'background'}}>Помилка!</Heading>
-                                                <Text>Ваша заявка не надіслана. Спробуйте ще раз</Text>
-                                            </Box>
-                                            : null
                                     }
                                 </Box>
+
+//                                 <Box sx={styles.info}>
+//                                     { submitted ?
+//                                         <Box style={{paddingLeft: '42%'}}>
+//                                             <ThreeDots
+//                                                 color="white"
+//                                                 height={80}
+//                                                 width={80}
+//                                                 ariaLabel="three-dots-running"
+//                                             />
+//                                         </Box>
+//                                         : status === "success" ?
+//                                         <Box sx={styles.success} status="success">
+//                                             <Heading variant='title' style={{color: 'background'}}>Успішно!</Heading>
+//                                             <Text>Ваша заявка надіслана. Мы Вам зателефонуємо найближчим часом</Text>
+//                                         </Box>
+//                                         : status === "error" ?
+//                                             <Box sx={styles.error} status="error" >
+//                                                 <Heading variant='title' style={{color: 'background'}}>Помилка!</Heading>
+//                                                 <Text>Ваша заявка не надіслана. Спробуйте ще раз</Text>
+//                                             </Box>
+//                                             : null
+//                                     }
+//                                 </Box>
                             </form>
                         </Box>
                     </Box>
@@ -221,16 +244,16 @@ const styles = {
     info: {
         marginTop: '20px',
     },
-    success: {
-        padding: '5px 10px',
-        color: 'background',
-        border: '2px solid background',
-        backgroundColor: '#C7002B',
-    },
-    error: {
-        padding: '5px 10px',
-        color: 'background',
-        border: '2px solid background',
-        backgroundColor: 'text',
-    },
+//     success: {
+//         padding: '5px 10px',
+//         color: 'background',
+//         border: '2px solid background',
+//         backgroundColor: '#C7002B',
+//     },
+//     error: {
+//         padding: '5px 10px',
+//         color: 'background',
+//         border: '2px solid background',
+//         backgroundColor: 'text',
+//     },
 };
