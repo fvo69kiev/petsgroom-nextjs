@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import 'react-modal-video/css/modal-video.min.css';
 import 'rc-drawer/assets/index.css';
 import "react-image-gallery/styles/css/image-gallery.css";
+import 'react-toastify/dist/ReactToastify.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'typeface-dm-sans';
 
