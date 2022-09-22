@@ -51,7 +51,7 @@ export default function Order() {
             }
             else {
 //                 setStatus('error')
-                 toast.error('Ваша заявка не надіслана. Виникла помилка. Спробуйте ще раз');
+                toast.error('Ваша заявка не надіслана. Виникла помилка. Спробуйте ще раз');
                 clear()
             }
         })
@@ -93,7 +93,7 @@ export default function Order() {
                                         value={email}
                                         onChange={(e) => { setEmail(e.target.value) }}
                                         placeholder='Email'
-//                                         required
+                                        required
                                     />
                                 </Flex>
                                 <Flex sx={styles.subscribeForm}>
@@ -106,7 +106,7 @@ export default function Order() {
                                         value={phone}
                                         onChange={(e) => {setPhone(e.target.value)}}
                                         placeholder="Телефон"
-//                                         required
+                                        required
                                     />
                                 </Flex>
                                 <Flex sx={styles.subscribeForm}>
@@ -122,12 +122,13 @@ export default function Order() {
                                 </Flex>
                                 <Button
                                     type='submit'
-//                                     isLoading={submitted}
+                                    isLoading={submitted}
                                     arial-label='Надіслати'
                                     sx={styles.subscribeForm[".subscribe__btn"]}
                                 >
                                     {submitted ? 'Надсилається ...' : 'Надіслати'}
                                 </Button>
+
                                 <Box sx={styles.info}>
                                     {submitted &&
                                         <Box style={{paddingLeft: '42%'}}>
@@ -223,6 +224,7 @@ const styles = {
     info: {
         marginTop: '20px',
     },
+    
 //     success: {
 //         padding: '5px 10px',
 //         color: 'background',
@@ -235,4 +237,5 @@ const styles = {
 //         border: '2px solid background',
 //         backgroundColor: 'text',
 //     },
+    
 };
