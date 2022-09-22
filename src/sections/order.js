@@ -140,7 +140,6 @@ export default function Order() {
                                         </Box>
                                     }
                                 </Box>
-
 //                                 <Box sx={styles.info}>
 //                                     { submitted ?
 //                                         <Box style={{paddingLeft: '42%'}}>
